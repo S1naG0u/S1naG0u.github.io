@@ -769,10 +769,7 @@
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            RMI简述正常的一般情况下java方法调用指的是同一个jvm内方法的调用，RMI 允许一个 Java 虚拟机（JVM）中的对象调用另一个 JVM 中对象的方法，如同调用本地方法
-其实也就是服务端将一个远程对象开放出去，客户端可以请求这个服务端，然后使用这个远程对象的方法。
-RMI使用socket链接服务端和客户端，每个远程对象对应一个端口，当存在多个远程对象时，就需要一个注册中心来进行管理，...
+                            <p>本文全面介绍了Java RMI（远程方法调用）的基础知识，包括RMI的工作原理、Stub和Skeleton概念、注册中心机制，以及详细的源码分析和安全漏洞利用链的构造方法。</p>
                         
                     </div>
 
@@ -827,9 +824,7 @@ RMI使用socket链接服务端和客户端，每个远程对象对应一个端�
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            环境搭建https://github.com/sanjiu176/Shiro-root-1.2.4.git
-入口点分析：CookieRememberMeManager.getRememberedSerializedIdentity()12345678910111213141516171819202122232425262728293031323334353637383940protected...
+                            <p>本文深入分析了Apache Shiro 1.2.4版本的反序列化漏洞（CVE-2016-6802），详细介绍了漏洞的入口点分析、加密密钥的寻找过程，以及完整的利用链构造方法。</p>
                         
                     </div>
 
@@ -884,10 +879,7 @@ RMI使用socket链接服务端和客户端，每个远程对象对应一个端�
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析和CC1_LazyMap一样通过触发LazyMap.get()执行ChainedTransformer.transform()来执行危险方法
-利用链分析找到一处AbstractMap.equals()
-123456789101112131415161718192021222324252627282930313233public boolean equals(Object o) &...
+                            <p>本文分析了Commons Collections 7链的利用原理，通过AbstractMap.equals()方法触发LazyMap.get()执行ChainedTransformer.transform()，利用Hashtable.readObject()在反序列化时通过reconstitutionPut()方法触发equals()比较。</p>
                         
                     </div>
 
@@ -942,9 +934,7 @@ RMI使用socket链接服务端和客户端，每个远程对象对应一个端�
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析和CC1_LazyMap一样通过触发LazyMap.get()执行ChainedTransformer.transform()来执行危险方法
-利用链构造与CC1_LazyMap不同的是CC1利用了sun.reflect.annotation.AnnotationInvocationHandler.invoke()+sun.reflect.annotation.Annotation...
+                            <p>本文分析了Commons Collections 5链的利用原理，通过TiedMapEntry.toString()方法触发LazyMap.get()执行ChainedTransformer.transform()，利用BadAttributeValueExpException.readObject()在反序列化时自动调用toString()方法。</p>
                         
                     </div>
 
@@ -999,12 +989,7 @@ RMI使用socket链接服务端和客户端，每个远程对象对应一个端�
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析同CC4几乎一样
-CC4是采用了chainedTransformer+TrAXFilter+TransformingComparator+InstantiateTransformer来执行TemplatesImpl.newTransformer()
-利用链是
-
-而CC2是直接使用InvokerTransformer()执行TemplatesImpl.newTransformer(...
+                            <p>本文分析了Commons Collections 2链的利用原理，相比CC4链更加简洁，直接使用InvokerTransformer执行TemplatesImpl.newTransformer()方法，通过PriorityQueue的siftDownUsingComparator触发利用链。</p>
                         
                     </div>
 
@@ -1059,10 +1044,7 @@ CC4是采用了chainedTransformer+TrAXFilter+TransformingComparator+InstantiateT
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析同CC3都是利用TemplatesImpI.getTransletInstance()通过类加载来实现危险类加载
-利用链分析TransformingComparator.compare()处存在对transform()方法的调用
-12345public int compare(final I obj1, final I obj2) &#123;    final O value1...
+                            <p>本文详细分析了Commons Collections 4链的利用原理，通过TransformingComparator.compare()方法触发chainedTransformer.transform()，利用PriorityQueue的readObject()方法在反序列化时自动触发heapify()和siftDownUsingComparator()方法。</p>
                         
                     </div>
 
@@ -1117,11 +1099,7 @@ CC4是采用了chainedTransformer+TrAXFilter+TransformingComparator+InstantiateT
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法链TemplatesImpI.getTransletInstance()
-此方法既调用了TemplatesImpI.defineTransletClasses() （此方法中调用了defineClass()方法加载类）
-又调用了newInstance()实例化了类
-1234567891011121314151617181920212223242526272829private Tra...
+                            <p>本文深入分析了Commons Collections 3链的利用原理，重点关注TemplatesImpl.getTransletInstance()方法，该方法通过defineTransletClasses()加载恶意类字节码，并通过newInstance()实例化执行恶意代码。</p>
                         
                     </div>
 
@@ -1176,11 +1154,7 @@ CC4是采用了chainedTransformer+TrAXFilter+TransformingComparator+InstantiateT
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析同CC1_LazyMap的相同都是利用InvokerTransformer.transform()
-利用链分析对于寻找对LazyMap.get()方法的调用区别于CC1_LazyMap
-此链用到的是TiedMapEntry类的hashcode
-123456789public Object getValue() &#123;	return map.get(key);&#125;pu...
+                            <p>本文分析了Commons Collections 6链的利用原理，通过TiedMapEntry.hashCode()方法触发LazyMap.get()执行InvokerTransformer.transform()，利用HashMap.readObject()在反序列化时自动调用hash()方法触发hashCode()。</p>
                         
                     </div>
 
@@ -1235,10 +1209,7 @@ CC4是采用了chainedTransformer+TrAXFilter+TransformingComparator+InstantiateT
 
                     <div class="home-article-content markdown-body">
                         
-                            
-                            危险方法分析同样是利用InvokerTransformer.transform()现在的需求是找一个可以触发这个方法的地方
-利用链分析找到了LazyMap.get()方法
-123456789public Object get(Object key) &#123;    // create value for key if key is not currently in the map    ...
+                            <p>本文分析了Commons Collections 1 LazyMap链的利用原理，通过LazyMap.get()方法触发InvokerTransformer.transform()，利用AnnotationInvocationHandler.invoke()通过动态代理机制调用get()方法，实现反序列化漏洞利用。</p>
                         
                     </div>
 
