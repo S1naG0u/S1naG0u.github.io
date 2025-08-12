@@ -585,66 +585,14 @@
 	
 
 	
-	<h1 class="page-title-header" style="text-align:center;margin-bottom:40px;">
-    分类
+	<h1 class="page-title-header">
+	分类
 </h1>
-<div class="category-list-content custom-category-list">
-    
-    <a class="custom-category-card category-page-item" href="/categories/JAVA%E5%AE%89%E5%85%A8/">
-        
-        <div class="custom-category-img-wrap">
-            <img class="custom-category-img" src="https://s1nag0u.oss-cn-beijing.aliyuncs.com/macos-day.jpg" alt="JAVA安全" />
-        </div>
-        
-        <div class="custom-category-info">
-            <div class="custom-category-title">JAVA安全 <span class="custom-category-count">11</span></div>
-            
-            <div class="custom-category-desc">Java_Security</div>
-            
-        </div>
-    </a>
-    
+<div class="category-list-content">
+	<ul class="all-category-list"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/JAVA%E5%AE%89%E5%85%A8/">JAVA安全</a><span class="all-category-list-count">11</span></li></ul>
 </div>
-<div class="category-pagination">
-    <button id="category-prev">上一页</button>
-    <span id="category-page-info"></span>
-    <button id="category-next">下一页</button>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const pageSize = 3;
-    const items = Array.from(document.querySelectorAll('.category-page-item'));
-    const total = items.length;
-    const totalPages = Math.ceil(total / pageSize);
-    let currentPage = 1;
-
-    function showPage(page) {
-        items.forEach((item, idx) => {
-            item.style.display = (idx >= (page-1)*pageSize && idx < page*pageSize) ? '' : 'none';
-        });
-        document.getElementById('category-page-info').textContent = `第 ${page} / ${totalPages} 页`;
-        document.getElementById('category-prev').disabled = page === 1;
-        document.getElementById('category-next').disabled = page === totalPages;
-    }
-
-    document.getElementById('category-prev').onclick = function() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
-    };
-    document.getElementById('category-next').onclick = function() {
-        if (currentPage < totalPages) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    };
-
-    showPage(currentPage);
-});
-</script>
 <div class="category-comments">
-    
+	
 </div>
 	
 
